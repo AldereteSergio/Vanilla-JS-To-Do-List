@@ -1,0 +1,78 @@
+.all-mighty-box {
+  padding: 10px;
+  border: 0.4px groove #00000023;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  width: auto;
+  box-sizing: border-box;
+}
+
+.item {
+  padding-bottom: 10px;
+}
+.form {
+  width: 100%;
+}
+
+.task-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 0.4px groove #00000023;
+  box-sizing: border-box;
+}
+
+.form button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 0.4px groove #00000023;
+background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+.form button:hover {
+    background-color: #238eff;
+}
+
+.upper-item {
+  border: 0.4px groove #00000023;
+  padding: 10px;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+  padding: 10px;
+  align-items: center;
+}
+
+.item button {
+  padding: 5px;
+  border-radius: 5px;
+  border: 0.4px groove #00000023;
+}
+
+.delete-button {
+    background-color: #f44336;
+    color: white;
+}
+
+.delete-button:hover {
+  background-color: #fa5c51;
+  color: white;
+}
+
+.edit-button {
+  background-color: #4caf50;
+  color: white;
+}
+
+.edit-button:hover {
+  background-color: #74af76;
+  color: white;
+}
