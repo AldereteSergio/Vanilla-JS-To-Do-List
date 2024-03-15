@@ -4,33 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Tareas</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
     <h1>Lista de Tareas</h1>
     <div class="all-mighty-box">
-    <form class="form">
+    <form class="form" onsubmit="event.preventDefault(); addItem();">
         <input type="text" class="task-input" placeholder="Añadir tarea">
         <button class="input-button" type="submit">Añadir</button>
     </form>
     <div class="list-box">
         <ul class="upper-item">
-            <li class="item">
+            <!-- <li class="item">
                 <span class="item-text">Ejemplo</span>
                 <div class="botones">
-                    <button class="edit-button" onclick="">Editar</button>
+                    <button class="edit-button" >Editar</button>
                     <button class="delete-button">Eliminar</button>
                 </div>
-            </li>
-            <li class="item">
-                <span class="item-text">Ejemplo</span>
-                <div class="botones">
-                <button class="edit-button" onclick="">Editar</button>
-                <button class="delete-button">Eliminar</button>
-                </div>
-            </li>
+            </li> -->
         </ul>
     </div>
-    <script src="scripts.js"></script>
+    <div class="popup-edit">
+        <div class="popup-edit-box">
+            <form class="form-edit" onsubmit="event.preventDefault(); editItem();">
+                <input type="text" class="task-input-edit">
+                <button class="save-changes" type="submit">Guardar Cambios</button>
+            </form>
+        </div>
+    </div>
+    <script src="./script.js"></script>
 </body>
 </html>

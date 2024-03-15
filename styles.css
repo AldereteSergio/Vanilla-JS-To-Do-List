@@ -29,13 +29,13 @@
   margin-bottom: 10px;
   border-radius: 5px;
   border: 0.4px groove #00000023;
-background-color: #007bff;
+  background-color: #007bff;
   color: white;
   cursor: pointer;
 }
 
 .form button:hover {
-    background-color: #238eff;
+  background-color: #238eff;
 }
 
 .upper-item {
@@ -58,8 +58,9 @@ background-color: #007bff;
 }
 
 .delete-button {
-    background-color: #f44336;
-    color: white;
+  margin-left: 5px;
+  background-color: #f44336;
+  color: white;
 }
 
 .delete-button:hover {
@@ -68,6 +69,7 @@ background-color: #007bff;
 }
 
 .edit-button {
+  margin-left: 5px;
   background-color: #4caf50;
   color: white;
 }
@@ -75,4 +77,52 @@ background-color: #007bff;
 .edit-button:hover {
   background-color: #74af76;
   color: white;
+}
+
+.popup-edit-box {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 30%;
+  height: fit-content;
+}
+
+.popup-edit {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.form-edit {
+  display: block;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.task-input-edit {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 0.4px groove #00000023;
+  box-sizing: border-box;
+}
+
+.save-changes {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 0.4px groove #00000023;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  box-sizing: border-box;
 }
