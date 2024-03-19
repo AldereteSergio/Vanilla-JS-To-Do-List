@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-    <h1>Lista de Tareas</h1>
+    <h1 id="title">Lista de Tareas</h1>
     <div class="all-mighty-box">
     <form class="form" onsubmit="event.preventDefault(); addItem();">
         <input type="text" class="task-input" placeholder="Añadir tarea">
@@ -29,6 +29,7 @@
         <div class="popup-edit-box">
             <form class="form-edit" onsubmit="event.preventDefault(); editItem();">
                 <input type="text" class="task-input-edit">
+                <textarea class="task-description-edit" name="descripcion" rows="4" cols="50" placeholder="Descripción"></textarea>
                 <button class="save-changes" type="submit">Guardar Cambios</button>
             </form>
         </div>
