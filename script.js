@@ -1,15 +1,20 @@
 function addItem() {
   const taskInput = document.querySelector(".task-input");
+  const taskDescription = document.querySelector(".task-description");
   const upperItem = document.querySelector(".upper-item");
   const newItem = document.createElement("li");
   const newSpan = document.createElement("span");
+  const newDescription = document.createElement("a");
   const newDiv = document.createElement("div");
   const newEditButton = document.createElement("button");
   const newDeleteButton = document.createElement("button");
-  if (taskInput.value === "") {
+  if (taskInput.value === "" || taskDescription.value === "") {
     return;
   }
   newSpan.textContent = taskInput.value;
+  newSpan.classList.add("task");
+  newDescription.textContent = taskDescription.value;
+  newDescription.classList.add("description");
   newEditButton.textContent = "Editar";
   newDeleteButton.textContent = "Eliminar";
   newEditButton.classList.add("edit-button");
@@ -19,6 +24,7 @@ function addItem() {
   newDiv.appendChild(newEditButton);
   newDiv.appendChild(newDeleteButton);
   newItem.appendChild(newSpan);
+  newItem.appendChild(newDescription);
   newItem.appendChild(newDiv);
   upperItem.appendChild(newItem);
   taskInput.value = "";
