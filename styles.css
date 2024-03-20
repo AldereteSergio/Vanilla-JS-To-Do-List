@@ -1,14 +1,283 @@
-#title {
-  
+:root {
+  --glitched-duration: 0.9s;
+  --glitched-long-duration: 3s;
+  --yellow-color: #f9f002;
+  --yellow-color-opacity: #f9f00242;
+  --orange-color: #ff9800;
+  --border-color: #8ae66e;
+  --red-color: #ff003c;
+  --blue-color: #0c5f74;
+  --green-color: #298d29;
+  --purple-color: purple;
+  --neon-color: #39ff14;
+  --black-color: #000;
+}
+
+@font-face {
+  font-family: "Cyberpunk";
+  src: url(./fonts/Cyberpunk.ttf);
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Advent Pro Medium";
+  src: url(./fonts/AdventPro-Medium.ttf);
+}
+
+@font-face {
+  font-family: "Advent Pro Regular";
+  src: url(./fonts/AdventPro-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Advent Pro SemiBold";
+  src: url(./fonts/AdventPro-SemiBold.ttf);
+}
+
+body {
+  background-color: var(--yellow-color);
+  padding: 0px;
+  margin: 0px;
+  font-size: 20px;
+}
+
+.container h1 {
+  font-family: "Cyberpunk", sans-serif;
+  margin-left: 10px;
+  font-size: 2rem;
+  line-height: 2.2rem;
+  font-weight: 200;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.container h1::before {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0px;
+  left: 2px;
+  width: 100%;
+  height: 10px;
+  background-color: var(--black-color);
+  clip-path: polygon(
+    0px 0px,
+    85px 0px,
+    90px 5px,
+    100% 5px,
+    100% 6px,
+    85px 6px,
+    80px 10px,
+    0px 10px
+  );
+}
+
+.title {
+  animation-name: h1glitched;
+  animation-duration: calc(var(--glitched-duration) * 1.4);
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  width: 98%;
+}
+
+@keyframes h1glitched {
+  0% {
+    transform: skew(-20deg);
+    left: -4px;
+  }
+  10% {
+    transform: skew(-20deg);
+    left: -4px;
+  }
+  11% {
+    transform: skew(0deg);
+    left: 2px;
+  }
+  50% {
+    transform: skew(0deg);
+  }
+  51% {
+    transform: skew(10deg);
+  }
+  59% {
+    transform: skew(10deg);
+  }
+  60% {
+    transform: skew(0deg);
+  }
+  100% {
+    transform: skew(0deg);
+  }
+}
+
+.title::before {
+  animation-name: h1beforeglitched;
+  animation-duration: calc(var(--glitched-duration) * 2);
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes h1beforeglitched {
+  0% {
+    transform: skew(-20deg);
+    left: -4px;
+    clip-path: polygon(
+      0px 0px,
+      85px 0px,
+      90px 5px,
+      100% 5px,
+      100% 6px,
+      85px 6px,
+      80px 10px,
+      0px 10px
+    );
+  }
+  10% {
+    transform: skew(-20deg);
+    left: -4px;
+    clip-path: polygon(
+      0px 0px,
+      85px 0px,
+      90px 5px,
+      100% 5px,
+      100% 6px,
+      85px 6px,
+      80px 10px,
+      0px 10px
+    );
+  }
+  11% {
+    transform: skew(0deg);
+    left: 2px;
+    clip-path: polygon(
+      0px 0px,
+      85px 0px,
+      90px 5px,
+      100% 5px,
+      100% 6px,
+      85px 6px,
+      80px 10px,
+      0px 10px
+    );
+  }
+  50% {
+    transform: skew(0deg);
+    clip-path: polygon(
+      0px 0px,
+      85px 0px,
+      90px 5px,
+      100% 5px,
+      100% 6px,
+      85px 6px,
+      80px 10px,
+      0px 10px
+    );
+  }
+  51% {
+    transform: skew(0deg);
+    clip-path: polygon(
+      0px 0px,
+      85px 0px,
+      90px 5px,
+      100% 5px,
+      40% 5px,
+      calc(40% - 30px) 0px,
+      calc(40% + 30px) 0px,
+      calc(45% - 15px) 5px,
+      100% 5px,
+      100% 6px,
+      calc(45% - 14px) 6px,
+      calc(40% + 29px) 1px,
+      calc(40% - 29px) 1px,
+      calc(40% + 1px) 6px,
+      85px 6px,
+      80px 10px,
+      0px 10px
+    );
+  }
+  59% {
+    transform: skew(0deg);
+    clip-path: polygon(
+      0px 0px,
+      85px 0px,
+      90px 5px,
+      100% 5px,
+      40% 5px,
+      calc(40% - 30px) 0px,
+      calc(40% + 30px) 0px,
+      calc(45% - 15px) 5px,
+      100% 5px,
+      100% 6px,
+      calc(45% - 14px) 6px,
+      calc(40% + 29px) 1px,
+      calc(40% - 29px) 1px,
+      calc(40% + 1px) 6px,
+      85px 6px,
+      80px 10px,
+      0px 10px
+    );
+  }
+  60% {
+    transform: skew(0deg);
+    clip-path: polygon(
+      0px 0px,
+      85px 0px,
+      90px 5px,
+      100% 5px,
+      100% 6px,
+      85px 6px,
+      80px 10px,
+      0px 10px
+    );
+  }
+  100% {
+    transform: skew(0deg);
+    clip-path: polygon(
+      0px 0px,
+      85px 0px,
+      90px 5px,
+      100% 5px,
+      100% 6px,
+      85px 6px,
+      80px 10px,
+      0px 10px
+    );
+  }
+}
+
+.title::after {
+  content: "_";
+  animation-name: hxafter;
+  animation-duration: var(--glitched-duration);
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes hxafter {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  51% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .all-mighty-box {
+  margin-left: calc(0% + 15px);
   padding: 10px;
   border: 0.4px groove #00000023;
   margin-bottom: 10px;
   border-radius: 5px;
-  width: auto;
+  width: calc(100% - 30px);
   box-sizing: border-box;
+  align-self: center;
 }
 
 .item {
@@ -18,13 +287,40 @@
   width: 100%;
 }
 
+.form input,
+.form textarea {
+  font-family: 'advent pro regular';
+  font-size: 1rem;
+  letter-spacing: 1px;
+  width: calc(100% - 30px);
+  border: 30px solid #000;
+  border-left: 5px solid #000;
+  border-right: 5px solid #000;
+  border-bottom: 15px solid #000;
+  clip-path: polygon(
+    0px 25px,
+    26px 0px,
+    calc(60% - 25px) 0px,
+    60% 25px,
+    100% 25px,
+    100% calc(100% - 10px),
+    calc(100% - 15px) calc(100% - 10px),
+    calc(80% - 10px) calc(100% - 10px),
+    calc(80% - 15px) calc(100% - 0px),
+    10px calc(100% - 0px),
+    0% calc(100% - 10px)
+  );
+  margin-bottom: 10px;
+  padding: 12px;
+}
+
+
 .task-input {
   width: 100%;
-  padding: 10px;
   margin-bottom: 10px;
-  border-radius: 5px;
-  border: 0.4px groove #00000023;
   box-sizing: border-box;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
 .task-description {
@@ -34,26 +330,223 @@
   border-radius: 5px;
   border: 0.4px groove #00000023;
   box-sizing: border-box;
-  font-family: 'Arial';
+  font-family: "Arial";
 }
 
-.form button {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  border: 0.4px groove #00000023;
-  background-color: #007bff;
+.form button,
+.save-changes {
+  display: block;
+  border: none;
+  border-radius: 0%;
+  width: calc(100% - 30px);
+  padding: 35px 75px;
+  position: relative;
+  border-right: 3px solid var(--border-color);
+  background-color: var(--blue-color);
   color: white;
   cursor: pointer;
+  font-family: "Advent Pro Regular", arial;
+  font-size: 1.5rem;
+  line-height: 100%;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 600;
+  clip-path: polygon(
+    -15px 0%,
+    calc(100% + 15px) 0%,
+    calc(100% + 15px) 100%,
+    20px 100%,
+    -15px calc(100% - 35px)
+  );
+  cursor: pointer;
+  outline: none;
 }
 
-.form button:hover {
-  background-color: #238eff;
+.form button:hover,
+.save-changes:hover {
+  animation-name: hover;
+  animation-duration: var(--glitched-duration);
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.input-button {
+  background-color: #136377;
+}
+
+.form button::after,
+.save-changes::after {
+  content: "R-25";
+  display: block;
+  position: absolute;
+  bottom: 0px;
+  right: 25px;
+  padding: 2px 2px 0px 2px;
+  font-size: 0.6rem;
+  line-height: 9px;
+  color: #000;
+  background-color: #f9f002;
+  border-left: 2px solid #8ae66e;
+}
+
+.form button:hover::after,
+.save-changes:hover::after {
+  animation-name: hoverafter;
+  animation-duration: var(--glitched-duration);
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.form button::before,
+.save-changes::before {
+  --outside: 4px;
+  content: "";
+  position: absolute;
+  display: none;
+  background-color: var(--background-color);
+  width: calc(100% + (var(--outside) * 2));
+  height: 12px;
+  top: 0px;
+  left: calc(0px - 1px - var(--outside));
+  border-left: 2px solid #8ae66e;
+  border-right: 2px solid #8ae66e;
+}
+
+.form button:hover:before,
+.save-changes:hover:before {
+  display: block;
+  animation-name: hoverbefore;
+  animation-duration: var(--glitched-duration);
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes hover {
+  0% {
+    transform: skew(0deg);
+  }
+  60% {
+    transform: skew(0deg);
+  }
+  61% {
+    transform: skew(10deg);
+  }
+  70% {
+    transform: skew(10deg);
+  }
+  71% {
+    transform: skew(0deg);
+  }
+  100% {
+    transform: skew(0deg);
+  }
+}
+
+@keyframes hoverbefore {
+  0% {
+    display: none;
+    top: 0px;
+  }
+  10% {
+    display: none;
+    top: 0px;
+  }
+  11% {
+    display: block;
+    top: 10px;
+    left: calc(0px - 0px - var(--outside));
+  }
+  29% {
+    top: 10px;
+  }
+  30% {
+    display: none;
+    top: 0px;
+  }
+  50% {
+    display: none;
+    top: 0px;
+  }
+  51% {
+    display: block;
+    top: 55px;
+    filter: blur(1px);
+    height: 22px;
+  }
+  90% {
+    display: block;
+    top: 55px;
+    height: 22px;
+  }
+  91% {
+    filter: blur(0px);
+    display: none;
+    top: 0px;
+    height: 12px;
+  }
+  100% {
+    display: none;
+    top: 0px;
+  }
+}
+
+@keyframes hoverafter {
+  0% {
+    right: 45px;
+  }
+
+  10% {
+    right: 45px;
+  }
+  11% {
+    right: 35px;
+  }
+  20% {
+    transform: skew(0deg);
+  }
+  21% {
+    transform: skew(-10deg);
+  }
+  40% {
+    transform: skew(-10deg);
+  }
+  41% {
+    transform: skew(0deg);
+  }
+  49% {
+    right: 35px;
+  }
+  50% {
+    right: 55px;
+  }
+
+  60% {
+    right: 55px;
+  }
+  61% {
+    right: 35px;
+  }
+  70% {
+    transform: skew(0deg);
+  }
+  71% {
+    transform: skew(10deg);
+  }
+  80% {
+    transform: skew(10deg);
+  }
+  81% {
+    transform: skew(0deg);
+  }
+  100% {
+    right: 35px;
+  }
 }
 
 .upper-item {
-  padding: 10px;
+  width: 100%;
+  justify-self: center;
+  padding: 0px;
 }
 
 .item {
@@ -66,30 +559,89 @@
 }
 
 .item button {
-  padding: 5px;
-  border-radius: 5px;
-  border: 0.4px groove #00000023;
+  display: block;
+  position: relative;
+  border: none;
+  padding: 35px 75px;
+  margin-right: 10px;
+  cursor: pointer;
+  font-family: "Advent Pro Regular", arial;
+  font-size: 1.5rem;
+  line-height: 100%;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 600;
+  border-radius: 0px;
+  outline: none;
+  width: 100%;
+  border-right: 3px solid var(--border-color);
+  clip-path: polygon(
+    -15px 0%,
+    calc(100% + 15px) 0%,
+    calc(100% + 15px) 100%,
+    20px 100%,
+    -15px calc(100% - 35px)
+  );
+}
+
+.item button:hover {
+  animation-name: hover;
+  animation-duration: var(--glitched-duration);
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.item button::after {
+  content: "R-25";
+  display: block;
+  position: absolute;
+  bottom: 0px;
+  right: 25px;
+  padding: 2px 2px 0px 2px;
+  font-size: 0.6rem;
+  line-height: 9px;
+  color: #000;
+  background-color: #f9f002;
+  border-left: 2px solid #8ae66e;
+}
+
+.item button:hover::after {
+  animation-name: hoverafter;
+  animation-duration: var(--glitched-duration);
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.item button::before {
+  --outside: 4px;
+  content: "";
+  position: absolute;
+  display: none;
+  background-color: var(--background-color);
+  width: calc(100% + (var(--outside) * 2));
+  height: 12px;
+  top: 0px;
+  left: calc(0px - 1px - var(--outside));
+  border-left: 2px solid #8ae66e;
+  border-right: 2px solid #8ae66e;
+}
+
+.item button:hover:before {
+  display: block;
+  animation-name: hoverbefore;
+  animation-duration: var(--glitched-duration);
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
 
 .delete-button {
-  margin-left: 5px;
-  background-color: #f44336;
-  color: white;
-}
-
-.delete-button:hover {
-  background-color: #fa5c51;
+  background-color: var(--red-color);
   color: white;
 }
 
 .edit-button {
   margin-left: 5px;
-  background-color: #4caf50;
-  color: white;
-}
-
-.edit-button:hover {
-  background-color: #74af76;
+  background-color: var(--green-color);
   color: white;
 }
 
@@ -129,62 +681,66 @@
   box-sizing: border-box;
 }
 
-.task-description-edit{
+.task-description-edit {
   width: 100%;
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 5px;
   border: 0.4px groove #00000023;
   box-sizing: border-box;
-  font-family: 'Arial';
-}
-
-.save-changes {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  border: 0.4px groove #00000023;
-  background-color: #007bff;
-  color: white;
-  cursor: pointer;
-  box-sizing: border-box;
+  font-family: "Arial";
 }
 
 .description {
-  font-family: 'Arial';
+  font-family: 'advent pro regular';
+  letter-spacing: 1px;
   width: 40%;
   padding: 10px;
   box-sizing: border-box;
 }
 
 .task {
-  font-family: 'Arial';
+  font-family: 'advent pro regular';
+  text-transform: uppercase;
+  letter-spacing: 1px;
   width: 30%;
   padding: 10px;
   box-sizing: border-box;
 }
 
 @media (max-width: 768px) {
+  .container h1 {
+    font-size: 1.5rem;
+  }
   .popup-edit-box {
     width: 80%;
   }
   .item {
     flex-direction: column;
   }
+
   .description {
     width: 100%;
     margin-bottom: 10px;
+    border-radius: 5px;
+    border: 0.4px groove #00000023;
   }
   .task {
     width: 100%;
     border: 0.4px groove #00000023;
     border-radius: 5px;
     text-align: center;
+    margin-bottom: 10px;
   }
 
   .item button {
     width: 100%;
     margin-bottom: 10px;
+  }
+
+  .item .botones {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
   }
 }

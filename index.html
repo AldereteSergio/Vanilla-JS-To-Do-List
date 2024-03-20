@@ -5,9 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Tareas</title>
     <link rel="stylesheet" href="./styles.css">
+    
 </head>
 <body>
-    <h1 id="title">Lista de Tareas</h1>
+    <div class="container">        
+    <h1 class="title">Lista&nbsp;&nbsp; De&nbsp;&nbsp; Tareas</h1>
+    </div>
     <div class="all-mighty-box">
     <form class="form" onsubmit="event.preventDefault(); addItem();">
         <input type="text" class="task-input" placeholder="Añadir tarea">
@@ -18,6 +21,7 @@
         <ul class="upper-item">
             <!-- <li class="item">
                 <span class="item-text">Ejemplo</span>
+                <a class="description">Descripción</a>
                 <div class="botones">
                     <button class="edit-button" >Editar</button>
                     <button class="delete-button">Eliminar</button>
