@@ -15,24 +15,14 @@
 
 @font-face {
   font-family: "Cyberpunk";
-  src: url(./fonts/Cyberpunk.ttf);
+  src: url(../fonts/Cyberpunk.ttf);
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Advent Pro Medium";
-  src: url(./fonts/AdventPro-Medium.ttf);
-}
-
-@font-face {
-  font-family: "Advent Pro Regular";
-  src: url(./fonts/AdventPro-Regular.ttf);
-}
-
-@font-face {
-  font-family: "Advent Pro SemiBold";
-  src: url(./fonts/AdventPro-SemiBold.ttf);
+  src: url(../fonts/AdventPro-Medium.ttf);
 }
 
 body {
@@ -285,11 +275,17 @@ body {
 }
 .form {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+/*  ESTILO DE LOS INPUTS */
 .form input,
-.form textarea {
-  font-family: 'advent pro regular';
+.form textarea,
+.form-edit input,
+.form-edit textarea {
+  font-family: "advent pro regular";
   font-size: 1rem;
   letter-spacing: 1px;
   width: calc(100% - 30px);
@@ -310,39 +306,47 @@ body {
     10px calc(100% - 0px),
     0% calc(100% - 10px)
   );
-  margin-bottom: 10px;
   padding: 12px;
 }
 
-
-.task-input {
+.task-input,
+.task-input-edit {
   width: 100%;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
   box-sizing: border-box;
   text-transform: uppercase;
   font-weight: bold;
 }
 
-.task-description {
+.task-description,
+.task-description-edit {
   width: 100%;
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 5px;
   border: 0.4px groove #00000023;
   box-sizing: border-box;
-  font-family: "Arial";
+  font-weight: lighter;
+}
+
+.space {
+  margin: 10px;
+}
+
+.input-button,
+.save-changes {
+  background-color: var(--blue-color);
 }
 
 .form button,
-.save-changes {
+.form-edit button {
   display: block;
   border: none;
   border-radius: 0%;
   width: calc(100% - 30px);
-  padding: 35px 75px;
+  padding: 4.1667% 9.375%;
   position: relative;
   border-right: 3px solid var(--border-color);
-  background-color: var(--blue-color);
   color: white;
   cursor: pointer;
   font-family: "Advent Pro Regular", arial;
@@ -362,20 +366,20 @@ body {
   outline: none;
 }
 
+.form-edit button {
+  margin-bottom: 5px;
+}
+
 .form button:hover,
-.save-changes:hover {
+.form-edit button:hover {
   animation-name: hover;
   animation-duration: var(--glitched-duration);
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
 
-.input-button {
-  background-color: #136377;
-}
-
 .form button::after,
-.save-changes::after {
+.form-edit button::after {
   content: "R-25";
   display: block;
   position: absolute;
@@ -390,7 +394,7 @@ body {
 }
 
 .form button:hover::after,
-.save-changes:hover::after {
+.form-edit button:hover::after {
   animation-name: hoverafter;
   animation-duration: var(--glitched-duration);
   animation-iteration-count: infinite;
@@ -398,7 +402,7 @@ body {
 }
 
 .form button::before,
-.save-changes::before {
+.form-edit button::before {
   --outside: 4px;
   content: "";
   position: absolute;
@@ -413,11 +417,11 @@ body {
 }
 
 .form button:hover:before,
-.save-changes:hover:before {
+.form-edit button:hover:before {
   display: block;
   animation-name: hoverbefore;
   animation-duration: var(--glitched-duration);
-  animation-iteration-count: infinite;
+  animation-iteration-count: 2;
   animation-timing-function: linear;
 }
 
@@ -551,6 +555,7 @@ body {
 
 .item {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   list-style-type: none;
   padding: 10px;
@@ -558,7 +563,44 @@ body {
   border: 0.4px groove #00000023;
 }
 
-.item button {
+.item span,
+.item a {
+  background-color: white;
+  font-family: "advent pro regular";
+  font-size: 1rem;
+  letter-spacing: 1px;
+  width: calc(100% - 30px);
+  border: 30px solid #000;
+  border-left: 5px solid #000;
+  border-right: 5px solid #000;
+  border-bottom: 15px solid #000;
+  clip-path: polygon(
+    0px 25px,
+    26px 0px,
+    calc(60% - 25px) 0px,
+    60% 25px,
+    100% 25px,
+    100% calc(100% - 10px),
+    calc(100% - 15px) calc(100% - 10px),
+    calc(80% - 10px) calc(100% - 10px),
+    calc(80% - 15px) calc(100% - 0px),
+    10px calc(100% - 0px),
+    0% calc(100% - 10px)
+  );
+  padding: 12px;
+}
+
+.item .task {
+  width: 30%;
+}
+
+.item .description {
+  width: 40%;
+}
+
+.item button,
+.cancel-changes {
+  margin-bottom: 5px;
   display: block;
   position: relative;
   border: none;
@@ -584,14 +626,16 @@ body {
   );
 }
 
-.item button:hover {
+.item button:hover,
+.cancel-changes:hover {
   animation-name: hover;
   animation-duration: var(--glitched-duration);
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
 
-.item button::after {
+.item button::after,
+.cancel-changes::after {
   content: "R-25";
   display: block;
   position: absolute;
@@ -605,14 +649,16 @@ body {
   border-left: 2px solid #8ae66e;
 }
 
-.item button:hover::after {
+.item button:hover::after,
+.cancel-changes:hover::after {
   animation-name: hoverafter;
   animation-duration: var(--glitched-duration);
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
 
-.item button::before {
+.item button::before,
+.cancel-changes::before {
   --outside: 4px;
   content: "";
   position: absolute;
@@ -626,7 +672,8 @@ body {
   border-right: 2px solid #8ae66e;
 }
 
-.item button:hover:before {
+.item button:hover:before,
+.cancel-changes:hover:before {
   display: block;
   animation-name: hoverbefore;
   animation-duration: var(--glitched-duration);
@@ -634,24 +681,32 @@ body {
   animation-timing-function: linear;
 }
 
-.delete-button {
+.delete-button,
+.cancel-changes {
   background-color: var(--red-color);
   color: white;
 }
 
 .edit-button {
-  margin-left: 5px;
   background-color: var(--green-color);
   color: white;
 }
 
 .popup-edit-box {
-  background-color: #fefefe;
+  background-color: var(--yellow-color);
   margin: 10% auto;
+  
   padding: 20px;
-  border: 1px solid #888;
   width: 30%;
   height: fit-content;
+  border-right: 3px solid var(--border-color);
+  clip-path: polygon(
+    0px 0px,
+    100% 0px,
+    100% 100%,
+    20px 100%,
+    0px calc(100% - 20px)
+  );
 }
 
 .popup-edit {
@@ -667,9 +722,17 @@ body {
 }
 
 .form-edit {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
+}
+
+.save-changes,
+.cancel-changes {
+  flex: 1;
+  margin: 0 10px;
 }
 
 .task-input-edit {
@@ -692,7 +755,7 @@ body {
 }
 
 .description {
-  font-family: 'advent pro regular';
+  font-family: "advent pro regular";
   letter-spacing: 1px;
   width: 40%;
   padding: 10px;
@@ -700,7 +763,7 @@ body {
 }
 
 .task {
-  font-family: 'advent pro regular';
+  font-family: "advent pro regular";
   text-transform: uppercase;
   letter-spacing: 1px;
   width: 30%;
@@ -709,38 +772,119 @@ body {
 }
 
 @media (max-width: 768px) {
+  .form button:hover:before,
+  .form-edit button:hover:before {
+    display: block;
+    animation-name: hoverbefore;
+    animation-duration: var(--glitched-duration);
+    animation-iteration-count: 2;
+    animation-timing-function: linear;
+  }
+
+  .form button:hover::after,
+  .form-edit button:hover::after {
+    animation-name: hoverafter;
+    animation-duration: var(--glitched-duration);
+    animation-iteration-count: 2;
+    animation-timing-function: linear;
+  }
+
+  .form button:hover,
+  .form-edit button:hover {
+    animation-name: hover;
+    animation-duration: var(--glitched-duration);
+    animation-iteration-count: 2;
+    animation-timing-function: linear;
+  }
+
   .container h1 {
     font-size: 1.5rem;
+    /* same widh as .list-box */
+    width: 92.3%;
   }
   .popup-edit-box {
     width: 80%;
   }
   .item {
+    display: flex;
     flex-direction: column;
   }
 
-  .description {
+  .item .description {
     width: 100%;
     margin-bottom: 10px;
     border-radius: 5px;
-    border: 0.4px groove #00000023;
   }
-  .task {
+  .item .task {
     width: 100%;
-    border: 0.4px groove #00000023;
     border-radius: 5px;
     text-align: center;
     margin-bottom: 10px;
   }
 
   .item button {
+    margin: 0px;
+    font-size: 75%;
+    padding: 2% 4%;
     width: 100%;
     margin-bottom: 10px;
+    /* scale size to 80% */
+    transform: scale(0.9);
   }
 
   .item .botones {
     display: flex;
     justify-content: space-between;
     width: 100%;
+  }
+
+  .item button:hover {
+    animation-name: hover;
+    animation-duration: var(--glitched-duration);
+    animation-iteration-count: 2;
+    animation-timing-function: linear;
+  }
+
+  .item button::after {
+    display: none;
+    content: "R-25";
+    position: absolute;
+    bottom: 0px;
+    right: 25px;
+    padding: 2px 2px 0px 2px;
+    font-size: 0.6rem;
+    line-height: 9px;
+    color: #000;
+    background-color: #f9f002;
+    border-left: 2px solid #8ae66e;
+  }
+
+  .item button:hover::after {
+    animation-name: hoverafter;
+    animation-duration: var(--glitched-duration);
+    animation-iteration-count: 2;
+    animation-timing-function: linear;
+  }
+
+  .item button::before {
+    --outside: 4px;
+    content: "";
+    position: absolute;
+    display: none;
+    background-color: var(--background-color);
+    width: calc(100% + (var(--outside) * 2));
+    height: 12px;
+    top: 0px;
+    left: calc(0px - 1px - var(--outside));
+    border-left: 2px solid #8ae66e;
+    border-right: 2px solid #8ae66e;
+  }
+
+  .item button:hover:before {
+    display: block;
+    animation-name: hoverbefore;
+    animation-duration: var(--glitched-duration);
+    animation-iteration-count: 2;
+    animation-timing-function: linear;
   }
 }

@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Tareas</title>
-    <link rel="stylesheet" href="./styles.css">
-    
+    <link rel="stylesheet" href="./cyberpunk_skin/styles.css">
 </head>
 <body>
     <div class="container">        
@@ -15,6 +14,7 @@
     <form class="form" onsubmit="event.preventDefault(); addItem();">
         <input type="text" class="task-input" placeholder="Añadir tarea">
         <textarea class="task-description" name="descripcion" rows="4" cols="50" placeholder="Descripción"></textarea>
+        <div class="space"></div>
         <button class="input-button" type="submit">Añadir</button>
     </form>
     <div class="list-box">
@@ -35,6 +35,7 @@
                 <input type="text" class="task-input-edit">
                 <textarea class="task-description-edit" name="descripcion" rows="4" cols="50" placeholder="Descripción"></textarea>
                 <button class="save-changes" type="submit">Guardar Cambios</button>
+                <button class="cancel-changes" onclick="closeEditPopup()">Cancelar</button>
             </form>
         </div>
     </div>
