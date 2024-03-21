@@ -78,4 +78,12 @@ function edit_popup(titleValue, descriptionValue) {
     // Ocultamos el popup
     popup.style.display = "none";
   });
+
+  // Seleccionamos el boton de cancelar
+  const cancelButton = document.querySelector(".cancel-changes");
+  // Agregamos un evento de click al boton de cancelar
+  cancelButton.addEventListener("click", function () {
+    // Ocultamos el popup
+    popup.style.display = "none";
+  });
 }
